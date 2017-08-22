@@ -7,6 +7,12 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var check_member_id = require('./routes/check_user_id/check_member_id');
+var check_merchant_id = require('./routes/check_user_id/check_merchant_id');
+var reg_member_data = require('./routes/reg_user_data/reg_member_data');
+var reg_merchant_data = require('./routes/reg_user_data/reg_merchant_data');
+var check_member_login = require('./routes/check_user_id/check_member_login');
+var check_merchant_login = require('./routes/check_user_id/check_merchant_login');
 
 var app = express();
 
@@ -34,6 +40,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/check_member_id', check_member_id);
+app.use('/check_merchant_id', check_merchant_id);
+app.use('/reg_member_data', reg_member_data);
+app.use('/reg_merchant_data', reg_merchant_data);
+app.use('/check_member_login', check_member_login);
+app.use('/check_merchant_login', check_merchant_login);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
