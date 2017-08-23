@@ -1,4 +1,4 @@
-var csvFunc = require('../../get_date_modules/getCSVmodule');
+var csvFunc = require('../../get_data_modules/getCSVmodule');
 var express = require('express');
 var router = express.Router();
 var KST = require('../../util_modules/getKST');
@@ -8,7 +8,7 @@ var date = require('../../util_modules/getDate');
 
 router.post('/', function(req, res){
     var recv_data = req.body;
-    
+
     res.end();
 });
 
