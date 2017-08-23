@@ -13,6 +13,12 @@ var reg_member_data = require('./routes/reg_user_data/reg_member_data');
 var reg_merchant_data = require('./routes/reg_user_data/reg_merchant_data');
 var check_member_login = require('./routes/check_user_id/check_member_login');
 var check_merchant_login = require('./routes/check_user_id/check_merchant_login');
+var delete_coupon = require('./routes/manage_coupon_ios/delete_coupon');
+var make_coupon = require('./routes/manage_coupon_ios/make_coupon');
+var show_coupon = require('./routes/manage_coupon_ios/show_coupon');
+var filled_stamp = require('./routes/manage_coupon_xamarin/filled_stamp');
+var unfilled_stamp = require('./routes/manage_coupon_xamarin/unfilled_stamp');
+var add_purchase_list = require('./routes/manage_coupon_xamarin/add_purchase_list');
 
 // 추가 모듈 - 작성 : 박령민
 var req_csv_file = require('./routes/req_data_file/req_csv_file');
@@ -49,6 +55,12 @@ app.use('/reg_member_data', reg_member_data);
 app.use('/reg_merchant_data', reg_merchant_data);
 app.use('/check_member_login', check_member_login);
 app.use('/check_merchant_login', check_merchant_login);
+app.use('/delete_coupon', delete_coupon);
+app.use('/make_coupon', make_coupon);
+app.use('/show_coupon', show_coupon);
+app.use('/filled_stamp', filled_stamp);
+app.use('/unfilled_stamp', unfilled_stamp);
+app.use('/add_purchase_list', add_purchase_list);
 
 // 추가 모듈 - 작성 : 박령민
 app.use('/req_csv_file', req_csv_file);

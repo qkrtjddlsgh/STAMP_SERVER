@@ -8,10 +8,12 @@ router.post('/', function(req, res){
     var id = recv_data.id;
     var password = recv_data.password;
     var store_name = recv_data.store_name;
+    var store_type = recv_data.store_type;
+    var store_region = recv_data.store_region;
     var store_address = recv_data.store_address;
     var phone_number = recv_data.phone_number;
 
-    var set_data = {$set: {password: password, store_name: store_name, store_address: store_address, phone_number: phone_number}};
+    var set_data = {$set: {password: password, store_name: store_name, store_type: store_type, store_region: store_region, store_address: store_address, phone_number: phone_number}};
 
     merchant.update({id: id}, set_data, function(err, result){
         if(err){
@@ -29,6 +31,8 @@ router.post('/', function(req, res){
             var add_data = new Object();
             add_data.id = id;
             add_data.store_name = store_name;
+            add_data.store_type = store_type;
+            add_data.store_region = store_region;
             add_data.store_address = store_address;
             add_data.phone_number = phone_number;
 

@@ -16,6 +16,8 @@ router.post('/', function(req, res){
             new_merchant.id = id;
             new_merchant.password = null;
             new_merchant.store_name = null;
+            new_merchant.store_type = null;
+            new_merchant.store_region = null;
             new_merchant.store_address = null;
             new_merchant.phone_number = null;
             new_merchant.save();
