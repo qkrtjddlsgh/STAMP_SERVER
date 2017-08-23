@@ -14,6 +14,9 @@ var reg_merchant_data = require('./routes/reg_user_data/reg_merchant_data');
 var check_member_login = require('./routes/check_user_id/check_member_login');
 var check_merchant_login = require('./routes/check_user_id/check_merchant_login');
 
+// 추가 모듈 - 작성 : 박령민
+var req_csv_file = require('./routes/req_data_file/req_csv_file');
+
 var app = express();
 
 var mongoose = require('mongoose');
@@ -46,6 +49,9 @@ app.use('/reg_member_data', reg_member_data);
 app.use('/reg_merchant_data', reg_merchant_data);
 app.use('/check_member_login', check_member_login);
 app.use('/check_merchant_login', check_merchant_login);
+
+// 추가 모듈 - 작성 : 박령민
+app.use('/req_csv_file', req_csv_file);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

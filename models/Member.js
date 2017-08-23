@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var memberData = new Schema({
+    device_token : String,
     id : String,
     password : String,
     name : String,
