@@ -5,7 +5,8 @@ var DiscountCard = new Schema({
     card_idx : String,
     store_name : String,
     store_region : String,
-    number_of_card : Number,
+
+    // 할인 (비율 대비) 정보
     discount_rate : Number, // 100이면 교환권을 의미
     item_name : String,
     additional_comment : String,

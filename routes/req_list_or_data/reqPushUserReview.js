@@ -10,11 +10,21 @@ router.post('/', function (req, res) {
     var store_name = recv_data.store_name;
     var author = recv_data.user_id;
     var body = recv_data.review_body;
+    var rating = recv_data.rating;
+    var date = new Date();
+    date.setHours(new Date().getHours() + 9);
+    var date_year = date.getYear();
+    var date_month = date.getMonth();
+    var date_day = date.getDate();
 
     var review_obj = {
         author : author,
         body : body,
-        date : kst()
+        date : kst(),
+        rating : rating,
+        date_year : date_year,
+        date_month : date_month,
+        date_day : date_day
     };
     var find_query = {store_name : store_name};
     var update_query = {$push : {review_list : review_obj}};
