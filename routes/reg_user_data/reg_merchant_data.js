@@ -41,6 +41,8 @@ router.post('/', function(req, res){
             add_data.store_address = store_address;
             add_data.store_desc = store_desc;
             add_data.phone_number = phone_number;
+            add_data.latitude = lat;
+            add_data.longitude = lng;
 
             var res_data = new Object()
             res_data.code = "1110";
