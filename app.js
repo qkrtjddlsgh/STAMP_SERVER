@@ -21,8 +21,8 @@ var unfilled_stamp = require('./routes/manage_coupon_xamarin/unfilled_stamp');
 var add_purchase_list = require('./routes/manage_coupon_xamarin/add_purchase_list');
 var get_my_info = require('./routes/req_merchant_list/get_my_info');
 var count_coupon = require('./routes/manage_coupon_ios/count_coupon');
-//var member_point_up = require('./routes/member_point/member_point_up');
-//var member_point_down = require('./routes/member_point/member_point_down');
+var member_point_up = require('./routes/member_point/member_point_up');
+var member_point_down = require('./routes/member_point/member_point_down');
 
 // 추가 모듈 - 작성 : 박령민
 var req_csv_file = require('./routes/req_data_file/req_csv_file');
@@ -77,8 +77,8 @@ app.use('/unfilled_stamp', unfilled_stamp);
 app.use('/add_purchase_list', add_purchase_list);
 app.use('/get_my_info', get_my_info);
 app.use('/count_coupon', count_coupon);
-//app.use('/member_point_up', member_point_up);
-//app.use('/member_point_down', member_point_down);
+app.use('/member_point_up', member_point_up);
+app.use('/member_point_down', member_point_down);
 
 // 추가 모듈 - 작성 : 박령민
 app.use('/req_csv_file', req_csv_file);
