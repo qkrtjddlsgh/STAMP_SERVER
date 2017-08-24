@@ -23,6 +23,7 @@ var get_my_info = require('./routes/req_merchant_list/get_my_info');
 var count_coupon = require('./routes/manage_coupon_ios/count_coupon');
 var member_point_up = require('./routes/member_point/member_point_up');
 var member_point_down = require('./routes/member_point/member_point_down');
+var get_member_info = require('./routes/req_member_info/get_member_info');
 
 // 추가 모듈 - 작성 : 박령민
 var req_csv_file = require('./routes/req_data_file/req_csv_file');
@@ -83,6 +84,7 @@ app.use('/get_my_info', get_my_info);
 app.use('/count_coupon', count_coupon);
 app.use('/member_point_up', member_point_up);
 app.use('/member_point_down', member_point_down);
+app.use('/get_member_info', get_member_info);
 
 // 추가 모듈 - 작성 : 박령민
 app.use('/req_csv_file', req_csv_file);
