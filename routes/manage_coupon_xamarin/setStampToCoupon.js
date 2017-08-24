@@ -44,13 +44,13 @@ router.post('/', function(req, res){
                         res.end();
                     }
                 });
-            }else if(region == "bupyeon_street"){
+            }else if(region == "bupyeong_street"){
                 coupon.update(find_query, {$push : {bupyeong_street : update_query}}, function (err, result) {
                     if(err){
                         dberr(err, res);
                     }else{
                         console.log("bupyeong street coupon set");
-                        var send_obj = {message : "inha steeet coupon set"};
+                        var send_obj = {message : "bupyeong steeet coupon set"};
                         send_obj.code = "6200";
                         res.send(send_obj);
                         res.end();
