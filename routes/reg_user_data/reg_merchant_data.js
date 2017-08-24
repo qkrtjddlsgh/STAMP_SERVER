@@ -10,7 +10,7 @@ router.post('/', function(req, res){
     var store_name = recv_data.store_name;
     var store_type = recv_data.store_type;
     var store_region = recv_data.store_region;
-    var store_address = recv_data.store_address;\
+    var store_address = recv_data.store_address;
     var store_desc = recv_data.store_desc;
     var phone_number = recv_data.phone_number;
     var lat = recv_data.latitude;
