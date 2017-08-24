@@ -12,9 +12,9 @@ router.post('/', function (req, res) {
     var body = recv_data.review_body;
     var rating = recv_data.rating;
     var date = new Date();
-    date.setHours(new Date().getHours() + 9);
-    var date_year = date.getYear();
-    var date_month = date.getMonth();
+    date.setHours(date.getHours() + 9);
+    var date_year = date.getFullYear();
+    var date_month = date.getMonth() + 1;
     var date_day = date.getDate();
 
     var review_obj = {
