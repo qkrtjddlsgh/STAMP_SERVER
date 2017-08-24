@@ -31,6 +31,8 @@ var get_merchant_data = require('./routes/req_list_or_data/getMerchantDetailData
 var req_push_user_review = require('./routes/req_list_or_data/reqPushUserReview');
 var register_discount_card = require('./routes/admin_request/registerDiscountCard');
 var take_discount_card = require('./routes/req_list_or_data/takeDiscountCard');
+var get_total_event_list_in_area = require('./routes/req_list_or_data/getTotalEventListInArea');
+var register_merchant_event = require('./routes/admin_request/registerMerchantEvent');
 
 var app = express();
 
@@ -82,6 +84,9 @@ app.use('/get_merchant_data', get_merchant_data);
 app.use('/req_push_user_review', req_push_user_review);
 app.use('/register_discount_card', register_discount_card);
 app.use('/take_discount_card', take_discount_card);
+app.use('/get_event_list', get_total_event_list_in_area);
+app.use('/register_merchant_event', register_merchant_event);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

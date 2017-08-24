@@ -20,5 +20,5 @@ var DiscountCard = new Schema({
     ]
 });
 
-discountCardSchem = mongoose.model('discount_card', DiscountCard, 'discount_cards');
+discountCardSchem = mongoose.model('discount_card', DiscountCard, 'reward_cards');
 module.exports = discountCardSchem;

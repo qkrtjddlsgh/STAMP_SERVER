@@ -21,7 +21,16 @@ var merchantData = new Schema({
     review_list : [],
 
     // 할인권 관련 필드
-    discount_card_list : []
+    discount_card_list : [],
+
+    // 현재 진행중인 이벤트
+    merchant_event_list : [
+        {
+            event_title : String,
+            event_body : String,
+            event_duration : String
+        }
+    ]
 });
 
 var merchant = mongoose.model('merchant', merchantData, 'merchants');
