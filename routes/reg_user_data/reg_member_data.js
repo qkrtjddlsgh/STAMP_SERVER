@@ -10,10 +10,10 @@ router.post('/', function(req, res) {
     var name = recv_data.name;
     var address = recv_data.address;
     var gender = recv_data.gender;
-    var point = recv_data.point;
+    //var point = recv_data.point;
     var phone_number = recv_data.phone_number;
 
-    var set_data = {$set: {password: password, name: name, address: address, gender: gender, point: point, phone_number: phone_number}};
+    var set_data = {$set: {password: password, name: name, address: address, gender: gender, phone_number: phone_number}};
 
     member.update({id: id}, set_data, function(err, result){
         if(err){
@@ -33,7 +33,7 @@ router.post('/', function(req, res) {
             add_data.name = name;
             add_data.address = address;
             add_data.gender = gender;
-            add_data.point = point;
+            add_data.point = 0;
             add_data.phone_number = phone_number;
 
             var res_data = new Object();
