@@ -10,14 +10,15 @@ router.post('/', function(req, res){
     var store_name = recv_data.store_name;
     var store_type = recv_data.store_type;
     var store_region = recv_data.store_region;
-    var store_address = recv_data.store_address;
+    var store_address = recv_data.store_address;\
+    var store_desc = recv_data.store_desc;
     var phone_number = recv_data.phone_number;
     var lat = recv_data.latitude;
     var lng = recv_data.longitude;
 
     var loc_obj = {type : "Point", coordinates : [lat, lng]};
 
-    var set_data = {$set: {password: password, store_name: store_name, store_type: store_type, store_region: store_region, store_address: store_address, phone_number: phone_number, location : loc_obj}};
+    var set_data = {$set: {password: password, store_name: store_name, store_type: store_type, store_region: store_region, store_address: store_address, store_desc: store_desc, phone_number: phone_number, location : loc_obj}};
 
     merchant.update({id: id}, set_data, function(err, result){
         if(err){
@@ -38,6 +39,7 @@ router.post('/', function(req, res){
             add_data.store_type = store_type;
             add_data.store_region = store_region;
             add_data.store_address = store_address;
+            add_data.store_desc = store_desc;
             add_data.phone_number = phone_number;
 
             var res_data = new Object()
