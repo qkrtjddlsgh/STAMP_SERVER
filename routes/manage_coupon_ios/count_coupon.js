@@ -24,9 +24,9 @@ router.post('/', function(req, res){
             res_data.code = "2200";
 
             var count = new Object();
-            count.inha_count = doc[0].inha_street.length;
-            count.bupyeong_count = doc[0].bupyeong_street.length;
-            count.chinatown_count = doc[0].chinatown_street.length;
+            count.inha_street = doc[0].inha_street.length;
+            count.bupyeong_street = doc[0].bupyeong_street.length;
+            count.chinatown_street = doc[0].chinatown_street.length;
 
             res_data.response = count;
 
