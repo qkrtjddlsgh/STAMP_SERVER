@@ -15,9 +15,6 @@ router.post('/',function (req, res) {
         }else{
             var tmp_arr = new Array();
             for(var i = 0; i < result.length; i++){
-                if(result[i].merchant_event_list == null){
-                    continue;
-                }
                 if(result[i].merchant_event_list.length > 0){
                     var tmp_obj = new Object();
                     tmp_obj.store_name = result[i].store_name;
@@ -27,6 +24,8 @@ router.post('/',function (req, res) {
                         tmp_arr2.push(result[i].merchant_event_list[j]);
                     }
                     tmp_obj.event_list = tmp_arr2;
+                }else{
+                    continue;
                 }
                 tmp_arr.push(tmp_obj);
             }
