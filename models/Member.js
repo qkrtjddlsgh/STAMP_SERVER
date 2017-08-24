@@ -8,6 +8,7 @@ var memberData = new Schema({
     name : String,
     address : String,
     gender : String,
+    point : Number,
     phone_number : String
 });
 
