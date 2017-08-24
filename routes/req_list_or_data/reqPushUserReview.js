@@ -23,7 +23,7 @@ router.post('/', function (req, res) {
         if(err){
             dberr(err, res);
         }else{
-            res.send(result);
+            res.send({result : result, review_data : review_obj});
             res.end();
         }
     })
