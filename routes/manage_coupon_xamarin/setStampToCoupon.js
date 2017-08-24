@@ -17,7 +17,7 @@ router.post('/', function(req, res){
         }
         if(doc.length == 0){
             var res_data = new Object();
-            res_data.code = "6200";
+            res_data.code = "6100";
             res_data.message = "Coupon is not exist";
 
             res.send(res_data);
@@ -39,6 +39,7 @@ router.post('/', function(req, res){
                     }else{
                         console.log("inha street coupon set");
                         var send_obj = {message : "inha street coupon set"};
+                        send_obj.code = "6200";
                         res.send(send_obj);
                         res.end();
                     }
@@ -50,6 +51,7 @@ router.post('/', function(req, res){
                     }else{
                         console.log("bupyeong street coupon set");
                         var send_obj = {message : "inha steeet coupon set"};
+                        send_obj.code = "6200";
                         res.send(send_obj);
                         res.end();
                     }
@@ -61,14 +63,18 @@ router.post('/', function(req, res){
                     }else{
                         console.log("chinatown street coupon set");
                         var send_obj = {message : "china street coupon set"};
+                        send_obj.code = "6200";
                         res.send(send_obj);
                         res.end();
                     }
                 });
             }else{
                 // 지역 요청이 잘못된 경우
-                console.error("invalid region");
-                res.send({message : "invalid region"});
+                var res_data = new Object();
+                res_data.code = "6100";
+                res_data.message = "Invalid region";
+
+                res.send(res_data);
                 res.end();
             }
         }
