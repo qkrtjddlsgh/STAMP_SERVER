@@ -20,6 +20,7 @@ router.post('/', function(req, res){
         }else{
 
             if(result.length == 0){
+                send_obj.code = "6200";
                 send_obj.message = "not exist merchant";
             }else{
                 var tmp_arr = new Array();
@@ -27,6 +28,7 @@ router.post('/', function(req, res){
                     var tmp_obj = result[i];
                     tmp_arr.push(tmp_obj);
                 }
+                send_obj.code = "6100";
                 send_obj.result_list = tmp_arr;
             }
             res.send(send_obj);
