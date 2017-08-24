@@ -1,5 +1,6 @@
-var idxFunc = function (time) {
-    return new Date(time * 10);
-}
+var dateToUnixTimeFull = function (date) {
+    var cur = new Date(date);
+    return Math.floor(cur.getTime());
+};
 
-module.exports = idxFunc;
+module.exports = dateToUnixTimeFull;
