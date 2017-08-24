@@ -15,7 +15,7 @@ router.post('/', function(req, res){
     var lat = recv_data.latitude;
     var lng = recv_data.longitude;
 
-    var loc_obj = {type : "Point", coordinates : [[lat, lng]]};
+    var loc_obj = {type : "Point", coordinates : [lat, lng]};
 
     var set_data = {$set: {password: password, store_name: store_name, store_type: store_type, store_region: store_region, store_address: store_address, phone_number: phone_number, location : loc_obj}};
 
