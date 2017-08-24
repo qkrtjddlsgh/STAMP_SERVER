@@ -5,9 +5,9 @@ var dberr = require('../../error_handle_modules/handleDBerror');
 
 router.post('/', function(req, res){
     var recv_data = req.body;
-    var lat = recv_data.latitude;
+    //var lat = recv_data.latitude;
     //lat = parseFloat(lat);
-    var lng = recv_data.longitude;
+    //var lng = recv_data.longitude;
     //lng = parseFloat(lng);
     var store_region = recv_data.store_region;
 
