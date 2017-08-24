@@ -35,6 +35,16 @@ router.post('/', function (req, res) {
         }else{
             res.send({result : result, review_data : review_obj});
             res.end();
+            merchant.find(find_query, function(err, result){
+               var pre_rating = result[0].cur_rating;
+               pre_rating *= result[0].rate_user_number;
+               var cur_rating = pre_rating + parseInt(rating);
+               cur_rating /= result[0].rate_user_number + 1;
+               var rate_update_query = {$set : {rate_user_number : result[0].rate_user_number + 1, cur_rating:cur_rating}};
+               merchant.update(find_query, rate_update_query,function (err, result) {
+
+               });
+            });
         }
     })
 });

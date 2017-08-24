@@ -30,7 +30,11 @@ var merchantData = new Schema({
             event_body : String,
             event_duration : String
         }
-    ]
+    ],
+
+    // 별점 카운트
+    cur_rating : {type : Number, default : 0},
+    rate_user_number : {type : Number, default : 0}
 });
 
 var merchant = mongoose.model('merchant', merchantData, 'merchants');
