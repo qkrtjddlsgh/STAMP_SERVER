@@ -13,7 +13,10 @@ var merchantData = new Schema({
     phone_number : String,
 
     // geometric data
-    location : { }
+    location : { },
+
+    // 할인권 관련 필드
+    discount_card_list : []
 });
 
 var merchant = mongoose.model('merchant', merchantData, 'merchants');

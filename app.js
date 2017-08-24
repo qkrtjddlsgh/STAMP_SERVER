@@ -29,6 +29,7 @@ var get_merchant_list_near_order = require('./routes/req_merchant_list/getMercha
 var create_commercial_area = require('./routes/admin_request/createCommercialArea');
 var get_merchant_data = require('./routes/req_list_or_data/getMerchantDetailData');
 var req_push_user_review = require('./routes/req_list_or_data/reqPushUserReview');
+var register_discount_card = require('./routes/admin_request/registerDiscountCard');
 
 var app = express();
 
@@ -78,6 +79,7 @@ app.use('/get_merchant_list', get_merchant_list_near_order);
 app.use('/create_commercial_area', create_commercial_area);
 app.use('/get_merchant_data', get_merchant_data);
 app.use('/req_push_user_review', req_push_user_review);
+app.use('/register_discount_card', register_discount_card);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

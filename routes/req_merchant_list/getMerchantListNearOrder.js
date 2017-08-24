@@ -11,27 +11,13 @@ router.post('/', function(req, res){
     //lng = parseFloat(lng);
     var store_region = recv_data.store_region;
 
-    var find_query = {location : {$near : {$geometry : {type : "Point", coordinates : [80.1, 80.1]}}}};
+    var find_query = {store_region : store_region};
     var send_obj = new Object();
 
     merchant.find(find_query, function (err, result) {
         if(err){
             dberr(err, res);
         }else{
-
-            if(store_region == "inha_street"){
-                send_obj.zoomLevel = "";
-                send_obj.zoom_center = "";
-            }else if(store_region == "bupyeong_street"){
-                send_obj.zoomLevel = "";
-                send_obj.zoom_center = "";
-            }else if(store_region == "chinatown_street"){
-                send_obj.zoomLevel = "";
-                send_obj.zoom_center = "";
-            }else{
-                send_obj.zoomLevel = "";
-                send_obj.zoom_center = "";
-            }
 
             if(result.length == 0){
                 send_obj.message = "not exist merchant";
