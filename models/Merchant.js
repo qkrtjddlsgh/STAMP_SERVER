@@ -5,9 +5,9 @@ var merchantData = new Schema({
     id : String,
     password : String,
     store_name : String,
-    // A : 음식점, B : 카페, C : 기타
+    // A : 음식점, B : 카페, C : 술집, D : 기타
     store_type : String,
-    // ex) 인하대후문, 송도, 월미도
+    // ex) inha_street, bupyeong street, chinatown_street
     store_region : String,
     store_address : String,
     // store 설명

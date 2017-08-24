@@ -50,7 +50,7 @@ router.post('/', function(req, res){
                         dberr(err, res);
                     }else{
                         console.log("bupyeong street coupon set");
-                        var send_obj = {message : "bupyeong steeet coupon set"};
+                        var send_obj = {message : "bupyeong street coupon set"};
                         send_obj.code = "6200";
                         res.send(send_obj);
                         res.end();
