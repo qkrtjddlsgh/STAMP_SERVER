@@ -11,54 +11,68 @@ router.post('/', function(req, res){
     var region = recv_data.store_region;
     var store = recv_data.store_name;
 
-    // DB query
-    var find_query = {member_phone_number : member_phone_number};
-    var update_query = {
-        when : when,
-        date : kst(),
-        where : store
-    };
+    coupon.find({member_phone_number: member_phone_number}, function(err, doc){
+        if(err){
+            console.error(err.message);
+        }
+        if(doc.length == 0){
+            var res_data = new Object();
+            res_data.code = "6200";
+            res_data.message = "Coupon is not exist";
 
-    if(region == "inha_street"){
-        coupon.update(find_query, {$push : {inha_street : update_query}}, function (err, result) {
-            if(err){
-                dberr(err, res);
-            }else{
-                console.log("inha street coupon set");
-                var send_obj = {message : "inha street coupon set"};
-                res.send(send_obj);
-                res.end();
-            }
-        });
-    }else if(region == "bupyeon_street"){
-        coupon.update(find_query, {$push : {bupyeong_street : update_query}}, function (err, result) {
-            if(err){
-                dberr(err, res);
-            }else{
-                console.log("bupyeong street coupon set");
-                var send_obj = {message : "inha steeet coupon set"};
-                res.send(send_obj);
-                res.end();
-            }
-        });
-    }else if(region == "chinatown_street"){
-        coupon.update(find_query, {$push : {chinatown_street : update_query}}, function (err, result) {
-            if(err){
-                dberr(err, res);
-            }else{
-                console.log("chinatown street coupon set");
-                var send_obj = {message : "china street coupon set"};
-                res.send(send_obj);
-                res.end();
-            }
-        });
-    }else{
-        // 지역 요청이 잘못된 경우
-        console.error("invalid region");
-        res.send({message : "invalid region"});
-        res.end();
-    }
+            res.send(res_data);
+            res.end();
+        }
+        else{
+            // DB query
+            var find_query = {member_phone_number : member_phone_number};
+            var update_query = {
+                when : when,
+                date : kst(),
+                where : store
+            };
 
+            if(region == "inha_street"){
+                coupon.update(find_query, {$push : {inha_street : update_query}}, function (err, result) {
+                    if(err){
+                        dberr(err, res);
+                    }else{
+                        console.log("inha street coupon set");
+                        var send_obj = {message : "inha street coupon set"};
+                        res.send(send_obj);
+                        res.end();
+                    }
+                });
+            }else if(region == "bupyeon_street"){
+                coupon.update(find_query, {$push : {bupyeong_street : update_query}}, function (err, result) {
+                    if(err){
+                        dberr(err, res);
+                    }else{
+                        console.log("bupyeong street coupon set");
+                        var send_obj = {message : "inha steeet coupon set"};
+                        res.send(send_obj);
+                        res.end();
+                    }
+                });
+            }else if(region == "chinatown_street"){
+                coupon.update(find_query, {$push : {chinatown_street : update_query}}, function (err, result) {
+                    if(err){
+                        dberr(err, res);
+                    }else{
+                        console.log("chinatown street coupon set");
+                        var send_obj = {message : "china street coupon set"};
+                        res.send(send_obj);
+                        res.end();
+                    }
+                });
+            }else{
+                // 지역 요청이 잘못된 경우
+                console.error("invalid region");
+                res.send({message : "invalid region"});
+                res.end();
+            }
+        }
+    });
 });
 
 module.exports = router;
