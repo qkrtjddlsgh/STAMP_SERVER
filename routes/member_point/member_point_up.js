@@ -7,6 +7,7 @@ router.post('/', function(req, res){
 
     var id = recv_data.id;
     var up_point = recv_data.point;
+    up_point = parseInt(up_point);
 
     member.find({id: id}, function(err, doc){
        if(err) {
