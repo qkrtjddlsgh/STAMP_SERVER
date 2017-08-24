@@ -15,6 +15,9 @@ router.post('/',function (req, res) {
         }else{
             var tmp_arr = new Array();
             for(var i = 0; i < result.length; i++){
+                if(result[i].merchant_event_list == null){
+                    continue;
+                }
                 if(result[i].merchant_event_list.length > 0){
                     var tmp_obj = new Object();
                     tmp_obj.store_name = result[i].store_name;
