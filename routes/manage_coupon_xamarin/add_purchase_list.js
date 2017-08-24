@@ -6,12 +6,13 @@ router.post('/', function(req, res){
     var recv_data = req.body;
 
     var date = recv_data.date;
-    var member_id = recv_data.member_id;
+    var member_phone_number = recv_data.member_phone_number;
+    var store_name = recv_data.store_name;
     var store_region = recv_data.store_region;
     var menu_name = recv_data.menu_name;
     var menu_num = recv_data.menu_num;
 
-    var query = {$push: {'purchase_list': {"member_id": member_id, "store_region": store_region, "menu_name": menu_name, "menu_num": menu_num}}};
+    var query = {$push: {'purchase_list': {"member_phone_number": member_phone_number, "store_name": store_name, "store_region": store_region, "menu_name": menu_name, "menu_num": menu_num}}};
 
     purchase.update({date: date}, query, function(err, result){
         if(err){
