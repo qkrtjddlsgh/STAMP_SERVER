@@ -23,6 +23,8 @@ var add_purchase_list = require('./routes/manage_coupon_xamarin/add_purchase_lis
 // 추가 모듈 - 작성 : 박령민
 var req_csv_file = require('./routes/req_data_file/req_csv_file');
 var set_device_token = require('./push_modules/setDeviceTokenToUser');
+var set_stamp_coupon = require('./routes/manage_coupon_xamarin/setStampToCoupon');
+var get_merchant_list_near_order = require('./routes/req_merchant_list/getMerchantListNearOrder');
 
 var app = express();
 
@@ -66,6 +68,8 @@ app.use('/add_purchase_list', add_purchase_list);
 // 추가 모듈 - 작성 : 박령민
 app.use('/req_csv_file', req_csv_file);
 app.use('/set_device_token', set_device_token);
+app.use('/set_stamp_coupon', set_stamp_coupon);
+app.use('/get_merchant_list', get_merchant_list_near_order);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

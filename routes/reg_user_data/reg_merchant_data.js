@@ -12,8 +12,12 @@ router.post('/', function(req, res){
     var store_region = recv_data.store_region;
     var store_address = recv_data.store_address;
     var phone_number = recv_data.phone_number;
+    var lat = recv_data.latitude;
+    var lng = recv_data.longitude;
 
-    var set_data = {$set: {password: password, store_name: store_name, store_type: store_type, store_region: store_region, store_address: store_address, phone_number: phone_number}};
+    var loc_obj = {type : "Point", coordinates : [[lat, lng]]};
+
+    var set_data = {$set: {password: password, store_name: store_name, store_type: store_type, store_region: store_region, store_address: store_address, phone_number: phone_number, location : loc_obj}};
 
     merchant.update({id: id}, set_data, function(err, result){
         if(err){

@@ -12,8 +12,8 @@ var merchantData = new Schema({
     store_address : String,
     phone_number : String,
 
-    map_Latitude : String,
-    map_Longitude : String
+    // geometric data
+    location : { }
 });
 
 var merchant = mongoose.model('merchant', merchantData, 'merchants');
