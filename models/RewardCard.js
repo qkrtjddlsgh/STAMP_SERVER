@@ -14,6 +14,7 @@ var rewardCard = new Schema({
     reward_data : {},
 
     // 소유자 정보
+    owner_type : {type : Number, default : 0},
     owner_id : String,
     owner_date : Date
 
