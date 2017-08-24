@@ -24,7 +24,7 @@ router.post('/', function(req, res){
             }else{
                 var tmp_arr = new Array();
                 for(var i = 0; i < result.length; i++){
-                    var tmp_obj = {latitude : result[i].coordinates[0], longitude : result[i].coordinates[1]};
+                    var tmp_obj = result[i];
                     tmp_arr.push(tmp_obj);
                 }
                 send_obj.result_list = tmp_arr;
