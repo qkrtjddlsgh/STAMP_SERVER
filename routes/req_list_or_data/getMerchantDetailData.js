@@ -5,9 +5,9 @@ var dberr = require('../../error_handle_modules/handleDBerror');
 
 router.post('/', function (req, res) {
     var recv_data = req.body;
-    var store_name = recv_data.store_name;
+    var id = recv_data.id;
 
-    var find_query = {store_name : store_name};
+    var find_query = {id : id};
 
     merchant.find(find_query, function (err, result) {
         if(err){
