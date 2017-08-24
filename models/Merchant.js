@@ -17,6 +17,9 @@ var merchantData = new Schema({
     // geometric data
     location : { },
 
+    // 리뷰 리스트
+    review_list : [],
+
     // 할인권 관련 필드
     discount_card_list : []
 });

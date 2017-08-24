@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var merchant = require('../../models/Merchant');
 var dberr = require('../../error_handle_modules/handleDBerror');
+var kst = require('../../util_modules/getKST');
 
 router.post('/', function (req, res) {
     var recv_data = req.body;
@@ -11,8 +12,9 @@ router.post('/', function (req, res) {
     var body = recv_data.review_body;
 
     var review_obj = {
-       author : author,
-       body : body
+        author : author,
+        body : body,
+        date : kst()
     };
     var find_query = {store_name : store_name};
     var update_query = {$push : {review_list : review_obj}};
