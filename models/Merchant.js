@@ -10,7 +10,10 @@ var merchantData = new Schema({
     // ex) 인하대후문, 송도, 월미도
     store_region : String,
     store_address : String,
-    phone_number : String
+    phone_number : String,
+
+    map_Latitude : String,
+    map_Longitude : String
 });
 
 var merchant = mongoose.model('merchant', merchantData, 'merchants');
