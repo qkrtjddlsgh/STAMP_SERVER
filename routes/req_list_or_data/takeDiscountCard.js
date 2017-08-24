@@ -13,11 +13,38 @@ router.post('/', function (req, res) {
         if(err){
             dberr(err, res);
         }else{
-            var card_cnt = 0;
-            for(var i = 0; i < result.length; i++){
-                if(result[i].number_of_card > 0){
-                    card_cnt
-                }
+            if(result.length == 0){
+                res.send({message : "not exist discount card"});
+                res.end();
+            }else {
+                var card_num = random(result.length);
+                var card_idx = result[card_num].card_idx;
+                discount_card.find({card_idx: card_idx}, function (err, result) {
+                    if (err) {
+                        dberr(err, res);
+                    } else {
+                        if (result[0].number_of_card <= 1) {
+                            discount_card.remove({card_idx: card_idx}, function (err, result) {
+                                if (err) {
+                                    dberr(err, res);
+                                } else {
+                                    res.send({result: result, idx: card_idx});
+                                    res.end();
+                                }
+                            });
+                        } else {
+                            var num = result[0].number_of_card;
+                            discount_card.update({card_idx: card_idx}, {$set: {number_of_card: num - 1}}, function (err, result) {
+                                if (err) {
+                                    dberr(err, res);
+                                } else {
+                                    res.send({result: result, idx: card_idx});
+                                    res.end();
+                                }
+                            });
+                        }
+                    }
+                });
             }
         }
     })

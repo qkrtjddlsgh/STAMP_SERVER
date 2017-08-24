@@ -4,6 +4,7 @@ var discount_card = require('../../models/DiscountCard');
 var merchant = require('../../models/Merchant');
 var dberr = require('../../error_handle_modules/handleDBerror');
 var kst = require('../../util_modules/getKST');
+var unix_time = require('../../util_modules/dateToUnixTime');
 
 router.post('/', function (req, res) {
     var recv_data = req.body;
@@ -17,6 +18,7 @@ router.post('/', function (req, res) {
 
     var doc = new discount_card();
     doc.store_name = store_name;
+    doc.card_idx = unix_time(new Date());
     doc.store_region = store_region;
     doc.number_of_card = number_of_card;
     doc.discount_rate = discount_rate;

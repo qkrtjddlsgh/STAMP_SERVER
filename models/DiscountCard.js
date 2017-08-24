@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var DiscountCard = new Schema({
+    card_idx : String,
     store_name : String,
     store_region : String,
     number_of_card : Number,
