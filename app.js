@@ -36,6 +36,10 @@ var register_discount_card = require('./routes/admin_request/registerDiscountCar
 var take_discount_card = require('./routes/req_list_or_data/takeDiscountCard');
 var get_total_event_list_in_area = require('./routes/req_list_or_data/getTotalEventListInArea');
 var register_merchant_event = require('./routes/admin_request/registerMerchantEvent');
+var create_reward_card = require('./routes/admin_request/createRewardCard');
+var take_reward_card = require('./routes/req_list_or_data/takeRewardCard');
+var get_my_reward_list = require('./routes/req_list_or_data/getMyRewardList');
+var remove_reward_card = require('./routes/req_list_or_data/removeRewardCard');
 
 var app = express();
 
@@ -92,7 +96,10 @@ app.use('/register_discount_card', register_discount_card);
 app.use('/take_discount_card', take_discount_card);
 app.use('/get_event_list', get_total_event_list_in_area);
 app.use('/register_merchant_event', register_merchant_event);
-
+app.use('/create_reward_card', create_reward_card);
+app.use('/take_reward_card', take_reward_card);
+app.use('/get_my_reward_list', get_my_reward_list);
+app.use('/remove_reward_card', remove_reward_card);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
