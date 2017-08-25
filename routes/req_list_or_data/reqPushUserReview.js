@@ -36,7 +36,7 @@ router.post('/', function (req, res) {
             res.send({result : result, review_data : review_obj});
             res.end();
             merchant.find(find_query, function(err, doc){
-                console.log(JSON.stringify(doc));
+                console.log(JSON.stringify(find_query));
                var pre_rating = doc[0].cur_rating;
                pre_rating *= doc[0].rate_user_number;
                var cur_rating = pre_rating + parseInt(rating);
