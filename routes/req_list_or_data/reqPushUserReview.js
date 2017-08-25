@@ -38,6 +38,7 @@ router.post('/', function (req, res) {
             merchant.find(find_query, function(err, result){
                var pre_rating = result[0].cur_rating;
                pre_rating *= result[0].rate_user_number;
+                console.log(result[0].cur_rating);
                var cur_rating = pre_rating + parseInt(rating);
                cur_rating /= result[0].rate_user_number + 1;
                var rate_update_query = {$set : {rate_user_number : result[0].rate_user_number + 1, cur_rating:cur_rating}};
